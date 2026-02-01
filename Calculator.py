@@ -12,32 +12,67 @@ def multiply(a, b):
 
 def divide(a, b):
     if b == 0:
-        return "Error: division by zero"
+        raise ZeroDivisionError("Division by zero is not allowed")
     return a / b
 
 
-def main():
-    print("Simple Python Calculator")
+def show_menu():
+    print("\nAdvanced Python Calculator")
     print("1. Add")
     print("2. Subtract")
     print("3. Multiply")
     print("4. Divide")
+    print("5. Show calculation history")
+    print("0. Exit")
 
-    choice = input("Choose operation (1-4): ")
 
-    a = float(input("Enter first number: "))
-    b = float(input("Enter second number: "))
+def main():
+    history = []
 
-    if choice == "1":
-        print("Result:", add(a, b))
-    elif choice == "2":
-        print("Result:", subtract(a, b))
-    elif choice == "3":
-        print("Result:", multiply(a, b))
-    elif choice == "4":
-        print("Result:", divide(a, b))
-    else:
-        print("Invalid choice")
+    while True:
+        show_menu()
+        choice = input("Choose operation: ")
+
+        if choice == "0":
+            print("Goodbye!")
+            break
+
+        if choice == "5":
+            print("\nCalculation history:")
+            if not history:
+                print("No calculations yet.")
+            else:
+                for item in history:
+                    print(item)
+            continue
+
+        try:
+            a = float(input("Enter first number: "))
+            b = float(input("Enter second number: "))
+
+            if choice == "1":
+                result = add(a, b)
+                operation = f"{a} + {b} = {result}"
+            elif choice == "2":
+                result = subtract(a, b)
+                operation = f"{a} - {b} = {result}"
+            elif choice == "3":
+                result = multiply(a, b)
+                operation = f"{a} * {b} = {result}"
+            elif choice == "4":
+                result = divide(a, b)
+                operation = f"{a} / {b} = {result}"
+            else:
+                print("Invalid option.")
+                continue
+
+            history.append(operation)
+            print("Result:", result)
+
+        except ValueError:
+            print("Error: please enter valid numbers.")
+        except ZeroDivisionError as e:
+            print("Error:", e)
 
 
 if __name__ == "__main__":
