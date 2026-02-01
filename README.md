@@ -1,17 +1,16 @@
-# Simple Python Calculator
+# Advanced Python Calculator (Development Branch)
 
-This project is a simple console calculator written in Python.
-It allows the user to perform basic arithmetic operations:
-addition, subtraction, multiplication, and division.
+This branch contains an improved version of the calculator.
+Compared to the main branch, it introduces new functionality
+and better error handling.
 
-## Technologies
-- Python 3
+## New features
+- Continuous program loop
+- Exception handling (ValueError, ZeroDivisionError)
+- Calculation history
+- Cleaner menu structure
 
-## Features
-- Simple text interface
-- Protection against division by zero
-- Easy-to-understand structure
-
-## Purpose
-This repository was created as part of the course "Narzędzia Informatyki"
-to demonstrate the use of GitHub, branches, and version control.
+## Purpose of this branch
+This branch demonstrates the use of Git branches for
+development and testing new features before merging
+them into the main branch.
